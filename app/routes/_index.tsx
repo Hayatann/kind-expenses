@@ -25,7 +25,7 @@ export const meta: MetaFunction = () => {
 export const loader = async () => {
   const res = await fetch(
     "https://script.google.com/macros/s/AKfycbxI7AxP_WciY4DKOR8BGc8FmHnkFajujx7EWG4SNq0fTFn-TJMoO9LSv0foKRmFeIOA/exec?action=getAllData"
-  );
+  ); // GASからデータ取得
   const data = await res.json();
   return json({ data });
 };
