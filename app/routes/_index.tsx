@@ -2,12 +2,15 @@ import type { MetaFunction } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 
+type TransactionType = "income" | "expense";
+
 type Expense = {
   year: number;
   month: number;
   day: number;
   use: string;
   price: number;
+  transactionType: TransactionType;
   who: string;
   memo: string;
 };
@@ -34,30 +37,15 @@ export default function Index() {
   const expenses = useLoaderData<typeof loader>().data as Expense[];
 
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix on Cloudflare Workers</h1>
-      <ul>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://developers.cloudflare.com/workers/"
-            rel="noreferrer"
-          >
-            Cloudflare Workers Docs
-          </a>
-        </li>
-      </ul>
+    <div>
       <div>
         {expenses.map((expense: Expense, index: number) => (
           <div key={index}>
             <p>
               {expense.year}/{expense.month}/{expense.day} {expense.use}{" "}
-              {expense.price} {expense.who} {expense.memo}
+              {expense.price}{" "}
+              {expense.transactionType == "income" ? "収入" : "支出"}{" "}
+              {expense.who} {expense.memo}
             </p>
           </div>
         ))}
