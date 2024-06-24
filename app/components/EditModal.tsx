@@ -1,4 +1,4 @@
-import { useFetcher, useActionData } from "@remix-run/react";
+import { useFetcher } from "@remix-run/react";
 import type { Expense } from "~/types";
 import { useEffect } from "react";
 
@@ -10,7 +10,6 @@ interface EditModalProps {
 
 const EditModal = ({ expense, isOpen, onClose }: EditModalProps) => {
   const fetcher = useFetcher<{ success: boolean }>();
-  const actionData = useActionData<Expense | null>();
 
   useEffect(() => {
     if (fetcher.state === "idle" && fetcher.data && fetcher.data.success) {
