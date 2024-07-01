@@ -8,6 +8,12 @@ interface EditModalProps {
   onClose: () => void;
 }
 
+const formatDate = (year: number, month: number, date: number) => {
+  const formattedMonth = ("0" + month).slice(-2);
+  const formattedDate = ("0" + date).slice(-2);
+  return `${year}-${formattedMonth}-${formattedDate}`;
+};
+
 const EditModal = ({ expense, isOpen, onClose }: EditModalProps) => {
   const fetcher = useFetcher<{ success: boolean }>();
 
@@ -19,6 +25,7 @@ const EditModal = ({ expense, isOpen, onClose }: EditModalProps) => {
   }, [fetcher, onClose]);
 
   if (!isOpen || !expense) return null;
+  const formattedDate = formatDate(expense.year, expense.month, expense.date);
 
   return (
     <div className={`modal ${isOpen ? "modal-open" : ""}`}>
@@ -68,7 +75,7 @@ const EditModal = ({ expense, isOpen, onClose }: EditModalProps) => {
               id="date"
               name="date"
               className="input input-bordered w-full"
-              defaultValue={expense.date}
+              defaultValue={formattedDate}
             />
           </div>
           <div className="mb-4">

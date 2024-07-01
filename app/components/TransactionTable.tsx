@@ -23,8 +23,8 @@ export default function TransactionTable({ expenses }: Props) {
   };
 
   return (
-    <div className="max-w-fit overflow-x-scroll w-full mb-3 max-h-64">
-      <table className="table table-pin-rows w-full text-center">
+    <div className="max-w-fit overflow-x-scroll w-full mb-3 max-h-80">
+      <table className="table table-pin-rows w-full text-center text-lg">
         <thead>
           <tr>
             <th>ID</th>

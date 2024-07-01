@@ -13,6 +13,9 @@ const config = {
       fontFamily: {
         custom: ["07YasashisaGothic", "sans-serif"],
       },
+      fontSize: {
+        base: "1.125rem",
+      },
     },
   },
   daisyui: {

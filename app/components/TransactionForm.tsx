@@ -49,10 +49,7 @@ export default function TransactionForm() {
       </div>
 
       <div className="mb-4">
-        <label
-          className="block text-sm font-medium text-gray-700 mb-2"
-          htmlFor="date"
-        >
+        <label className="block font-medium text-gray-700 mb-2" htmlFor="date">
           日付
         </label>
         <input
@@ -65,10 +62,7 @@ export default function TransactionForm() {
       </div>
 
       <div className="mb-4">
-        <label
-          className="block text-sm font-medium text-gray-700 mb-2"
-          htmlFor="who"
-        >
+        <label className="block font-medium text-gray-700 mb-2" htmlFor="who">
           利用者
         </label>
         <input
@@ -82,10 +76,7 @@ export default function TransactionForm() {
       </div>
 
       <div className="mb-4">
-        <label
-          className="block text-sm font-medium text-gray-700 mb-2"
-          htmlFor="usage"
-        >
+        <label className="block font-medium text-gray-700 mb-2" htmlFor="usage">
           使い道
         </label>
         <input
@@ -99,10 +90,7 @@ export default function TransactionForm() {
       </div>
 
       <div className="mb-4">
-        <label
-          className="block text-sm font-medium text-gray-700 mb-2"
-          htmlFor="genre"
-        >
+        <label className="block font-medium text-gray-700 mb-2" htmlFor="genre">
           ジャンル
         </label>
         <select
@@ -122,7 +110,7 @@ export default function TransactionForm() {
 
       <div className="mb-4">
         <label
-          className="block text-sm font-medium text-gray-700 mb-2"
+          className="block font-medium text-gray-700 mb-2"
           htmlFor="amount"
         >
           金額
@@ -138,10 +126,7 @@ export default function TransactionForm() {
       </div>
 
       <div className="mb-4 md:col-span-2">
-        <label
-          className="block text-sm font-medium text-gray-700 mb-2"
-          htmlFor="memo"
-        >
+        <label className="block font-medium text-gray-700 mb-2" htmlFor="memo">
           メモ
         </label>
         <textarea

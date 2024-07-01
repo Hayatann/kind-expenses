@@ -96,7 +96,9 @@ export default function Index() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <TransactionTable expenses={data} />
-      <MyPieChart Expenses={data} />
+      <div className="w-full max-w-4xl mt-6 flex justify-center mb-6">
+        <MyPieChart Expenses={data} />
+      </div>
       <div className="w-full max-w-fit bg-white shadow-md rounded-lg p-6 mb-6">
         <TransactionForm />
       </div>
