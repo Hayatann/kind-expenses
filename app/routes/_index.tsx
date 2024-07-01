@@ -4,7 +4,8 @@ import TransactionForm from "~/components/TransactionForm";
 import TransactionTable from "~/components/TransactionTable";
 import { useLoaderData } from "@remix-run/react";
 import type { ActionFunction } from "@remix-run/node";
-import type { FormData, GASResponse } from "~/types";
+import type { FormData, GASResponse, TransactionType } from "~/types";
+import MyPieChart from "~/components/MyPieChart";
 export const meta: MetaFunction = () => {
   return [
     { title: "New Remix App" },
@@ -63,6 +64,10 @@ export const action: ActionFunction = async ({ request }) => {
     const result: GASResponse = await response.json();
     return json({ success: result.result === "success" });
   } else {
+    let transactionTypeValue = formData.get("transactionType");
+    if (formData.get("transactionType") === "") {
+      transactionTypeValue = "undefined";
+    }
     const data: FormData = {
       date: formData.get("date") as string,
       who: formData.get("who") as string,
@@ -70,7 +75,7 @@ export const action: ActionFunction = async ({ request }) => {
       genre: formData.get("genre") as string,
       amount: formData.get("amount") as string,
       memo: formData.get("memo") as string,
-      transactionType: formData.get("transactionType") as "income" | "expense",
+      transactionType: transactionTypeValue as TransactionType,
     };
     const response = await fetch(GAS_WEB_APP_URL, {
       method: "POST",
@@ -91,6 +96,7 @@ export default function Index() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <TransactionTable expenses={data} />
+      <MyPieChart Expenses={data} />
       <div className="w-full max-w-fit bg-white shadow-md rounded-lg p-6 mb-6">
         <TransactionForm />
       </div>
