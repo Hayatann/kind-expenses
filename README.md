@@ -1,39 +1,18 @@
-# Welcome to Remix + Cloudflare Workers!
+# やさしいかけいぼ
 
-- 📖 [Remix docs](https://remix.run/docs)
-- 📖 [Remix Cloudflare docs](https://remix.run/guides/vite#cloudflare)
+## 技術スタック
+- Remix
+- DaisyUI
+- Cloudflare Workers
+- GAS
 
-## Development
+## 開発
 
-Run the dev server:
-
-```sh
-npm run dev
 ```
-
-To run Wrangler:
-
-```sh
-npm run build
-npm start
+bun dev
 ```
-
-## Typegen
-
-Generate types for your Cloudflare bindings in `wrangler.toml`:
-
-```sh
-npm run typegen
+で開発用サーバー起動
 ```
-
-You will need to rerun typegen whenever you make changes to `wrangler.toml`.
-
-## Deployment
-
-If you don't already have an account, then [create a cloudflare account here](https://dash.cloudflare.com/sign-up) and after verifying your email address with Cloudflare, go to your dashboard and set up your free custom Cloudflare Workers subdomain.
-
-Once that's done, you should be able to deploy your app:
-
-```sh
-npm run deploy
+wrangler deploy
 ```
+でデプロイ
